@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbearia Estilo Fino</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    let numeroJoao = 5511955303539
+    let numeroCarlos = 5511972541477
+  </script>
+
+  <style>
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+      display: inline-block;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #333;
+      transform: scale(1.1);
+    }
+    .barbeiros-destaque {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem;
+    }
+    .barbeiros-destaque .barbeiro-ret {
+      width: 200px;
+      height: 300px;
+      background-color: #ccc;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #444;
+      text-align: center;
+      padding: 1rem;
+    }
+    .barbeiros-destaque .barbeiro-ret button {
+      margin-top: 1rem;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Barbearia Estilo Fino</h1>
+    <p>Seu estilo começa aqui</p>
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#horarios">Horários</a>
+    <a href="#local">Localização</a>
+    <a href="#funcionarios">Equipe</a>
+  </nav>
+
+  <div class="barbeiros-destaque">
+    <div class="barbeiro-ret">
+      <img src="barbeiro1.jpg" alt="Barbeiro 1" style="width: 100%; height: 70%; object-fit: cover; border-radius: 8px;">
+      <button onclick="abrirWhatsAppBarbeiro(`${numeroJoao}`)">Falar com João</button>
+    </div>
+    <div class="barbeiro-ret">
+      <img src="barbeiro2.jpg" alt="Barbeiro 2" style="width: 100%; height: 70%; object-fit: cover; border-radius: 8px;">
+      <button onclick="abrirWhatsAppBarbeiro(`${numeroCarlos}`)">Falar com Carlos</button>
+    </div>
+  </div>
+
+  <section id="horarios">
+    <h2>Horários</h2>
+    <ul>
+      <li>Ter a Sex: 9h às 19h</li>
+      <li>Sábado: 9h às 17h</li>
+      <li>Segunda e Domingo: Fechado</li>
+    </ul>
+  </section>
+
+  <section id="local">
+    <h2>Onde Estamos</h2>
+    <p>Rua dos Cortes 123, Bairro Estilo, São Paulo - SP</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <section id="funcionarios">
+    <h2>Nossa Equipe</h2>
+    <div class="barbeiro">
+      <img src="barbeiro1.jpg" alt="João - Especialista em corte clássico">
+      <h3>João</h3>
+      <p>Corte clássico e barba</p>
+    </div>
+    <div class="barbeiro">
+      <img src="barbeiro2.jpg" alt="Carlos - Fade e design de barba">
+      <h3>Carlos</h3>
+      <p>Fade e design de barba</p>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Somos uma barbearia tradicional com toques modernos. Atendimento de qualidade, ambiente confortável e profissionais experientes.</p>
+  </section>
+
+  <footer>
+    <button onclick="abrirWhatsAppBarbeiro(`${numeroJoao}`)">Agendar pelo WhatsApp</button>
+    <p>&copy; 2025 Barbearia Estilo Fino</p>
+  </footer>
+
+  <script>
+
+
+    function abrirWhatsAppBarbeiro(numero) {
+      let mensagem;
+      if (numero === `${numeroJoao}`) {
+        mensagem = 'Olá João! Gostaria de agendar um corte com você.';
+      } else if (numero === `${numeroJoao}`) {
+        mensagem = 'Olá Carlos! Estou interessado em um fade. Tem horário disponível?';
+      } else {
+        mensagem = 'Olá! Gostaria de agendar um horário na Barbearia Estilo Fino.';
+      }
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
